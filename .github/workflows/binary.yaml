@@ -18,7 +18,7 @@ jobs:
       - name: Install platform
         run: |
           arduino-cli core update-index
-          arduino-cli lib install AsyncTCP@3.4.4
+          arduino-cli lib install 'Async TCP@3.4.4'
           arduino-cli core install esp32:esp32
 
       - name: Compile Sketch
