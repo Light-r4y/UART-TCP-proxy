@@ -8,7 +8,7 @@ https://www.wemos.cc/en/latest/s2/s2_mini.html
 
 ## Software
 Arduino framework
-Requirment lib: AsyncTCP by ESP32Async (v 3.4.4)
+Requirment lib: 'Async TCP' by ESP32Async (v 3.4.4)
 
 for build use cli:
 
