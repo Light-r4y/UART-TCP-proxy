@@ -1,0 +1,37 @@
+name: dash-fw-ubuntu
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dash-fw-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@v2
+
+      - name: Install platform
+        run: |
+          arduino-cli core update-index
+          arduino-cli lib install AsyncTCP@3.4.4
+          arduino-cli core install esp32:esp32
+
+      - name: Compile Sketch
+        run: arduino-cli compile -b esp32:esp32:lolin_s2_mini:PartitionScheme=huge_app UART-TCP-proxy.ino -e -v
+
+      - name: Looking at folder
+        run: |
+          ls -l
+          ls -l build
+          ls -l build/esp32.esp32.lolin_s2_mini
+
+      - name: Upload .bin
+        uses: actions/upload-artifact@v4
+        with:
+          path: "build/*"
+
