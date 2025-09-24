@@ -9,8 +9,8 @@
 #define PORT   2000
 
 // UART Configuration
-#define UART_TX_PIN 17
-#define UART_RX_PIN 16
+#define UART_TX_PIN 21
+#define UART_RX_PIN 18
 #define UART_BAUD_RATE 115200
 #define UART_BUFFER_SIZE 2048
 
@@ -18,3 +18,4 @@
 #define LED_PIN 15
 
 #endif  // CONFIG_H
+
